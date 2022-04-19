@@ -3,6 +3,13 @@ const exphbs = require('express-handlebars')
 const methodOverride = require('method-override')
 const bcrypt = require('bcryptjs')
 
+if (process.env.NODE_ENV !== 'production') {
+    require('dotenv').config()
+}
+
+// 引用 mongoose 連線設定檔
+require('./config/mongoose')
+
 const app = express()
 
 app.engine('hbs', exphbs({ defaultLayout: 'main', extname: '.hbs' }))
