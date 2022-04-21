@@ -7,6 +7,9 @@ if (process.env.NODE_ENV !== 'production') {
     require('dotenv').config()
 }
 
+// 引用路由器
+const routes = require('./routes')
+
 // 引用 mongoose 連線設定檔
 require('./config/mongoose')
 
@@ -18,9 +21,8 @@ app.set('view engine', 'hbs')
 app.use(express.urlencoded({ extended: true }))
 app.use(methodOverride('_method'))
 
-app.get('/', (req, res) => {
-    res.send('hello world')
-})
+// 將 request 導入路由器
+app.use(routes)
 
 const port = 3000
 

@@ -1,0 +1,12 @@
+<form action="/records" method="POST">
+  <input type="text" placeholder="name" name="name">
+  <input type="date" placeholder="date" name="date">
+  <input type="number" placeholder="number" name="amount">
+  <select name="categoryId" class="form-select form-control" id="categoryId" required>
+    <option value="" selected disabled>Select</option>
+    {{#each categories}}
+      <option value="{{ this._id }}">{{ this.title }}</option>
+    {{/each}}
+  </select>
+  <button type="submit">Create</button>
+</form>

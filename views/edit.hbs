@@ -1,0 +1,15 @@
+<form action="/records/{{ record._id }}/?_method=PUT" method="POST">
+  <input type="text" placeholder="name" name="name" value="{{ record.name }}">
+  <input type="date" placeholder="date" name="date" value="{{ record.date }}">
+  <input type="number" placeholder="number" name="amount" value="{{ record.amount }}">
+  <select class="form-control" name="category" id="category" required>
+    <option value="{{ record.categoryId.title }}" selected>({{ record.categoryId.title }})</option>
+    <option value="餐飲食品">餐飲食品</option>
+    <option value="交通出行">交通出行</option>
+    <option value="休閒娛樂">休閒娛樂</option>
+    <option value="家居物業">家居物業</option>
+    <option value="其他">其他</option>
+  </select>
+  <button type="submit">Save</button>
+  <a href="/">back</a>
+</form> 
