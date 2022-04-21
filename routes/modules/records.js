@@ -4,7 +4,6 @@ const moment = require('moment')
 
 const Record = require('../../models/record')
 const Category = require('../../models/category')
-const record = require('../../models/record')
 
 // Create page (new item page)
 router.get('/new', (req, res) => {
