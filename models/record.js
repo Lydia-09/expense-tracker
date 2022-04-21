@@ -21,6 +21,12 @@ const recordSchema = new Schema({
     type: Number,
     min: [1, 'at least one dollar'],
     require: true
+  },
+  userId: {  // 加入關聯設定
+    type: Schema.Types.ObjectId,
+    ref: 'User',
+    index: true,
+    require: true
   }
 })
 

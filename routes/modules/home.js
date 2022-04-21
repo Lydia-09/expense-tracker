@@ -7,11 +7,12 @@ const Category = require('../../models/category')
 
 // 設定首頁路由
 router.get('/', (req, res) => {
+    const userId = req.user._id
     Category.find()
         .lean()
         .sort({ _id: 'asc' })
         .then(categories => {
-            Record.find()
+            Record.find({ userId })
                 .populate('categoryId')
                 .lean()
                 .sort({ _id: 'asc' })
