@@ -3,7 +3,6 @@ const session = require('express-session')
 const exphbs = require('express-handlebars')
 const methodOverride = require('method-override')
 const flash = require('connect-flash')
-const bcrypt = require('bcryptjs')
 
 if (process.env.NODE_ENV !== 'production') {
     require('dotenv').config()
