@@ -42,7 +42,7 @@ db.once('open', () => {
           recordLists.forEach( function(record) {
             record.userId = user._id
             recordPromise.push(
-              Category.findOne({ title: record.category })
+              Category.findOne({ name: record.category })
                 .then(category => {
                   if (category) {
                     record.categoryId = category._id

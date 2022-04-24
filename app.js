@@ -43,7 +43,9 @@ app.use((req, res, next) => {
 // 將 request 導入路由器
 app.use(routes)
 
-const port = 3000
+app.use(express.static('public'))
+
+const port = process.env.PORT
 
 app.listen(port, () => {
   console.log(`App is running on http://localhost:${port}`)

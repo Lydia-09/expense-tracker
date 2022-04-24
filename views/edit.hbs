@@ -1,15 +1,41 @@
-<form action="/records/{{ record._id }}/?_method=PUT" method="POST">
-  <input type="text" placeholder="name" name="name" value="{{ record.name }}">
-  <input type="date" placeholder="date" name="date" value="{{ record.date }}">
-  <input type="number" placeholder="number" name="amount" value="{{ record.amount }}">
-  <select class="form-control" name="category" id="category" required>
-    <option value="{{ record.categoryId.title }}" selected>({{ record.categoryId.title }})</option>
-    <option value="餐飲食品">餐飲食品</option>
-    <option value="交通出行">交通出行</option>
-    <option value="休閒娛樂">休閒娛樂</option>
-    <option value="家居物業">家居物業</option>
-    <option value="其他">其他</option>
-  </select>
-  <button type="submit">Save</button>
-  <a href="/">back</a>
-</form> 
+<div class="expenseForm">
+  <h3 class="text-secondary mb-0 mt-3">修改支出記錄</h3>
+  <p class="text-secondary"><small>( <span class="text-danger">*</span> 號為必填欄位 )</small></p>
+  <form action="/records/{{ record._id }}/?_method=PUT" method="POST">
+    <div class="form-group row">
+      <label for="name" class="col-sm-2 col-form-label text-md-right pt-1 pr-1">名稱<span class="text-danger">*</span></label>
+      <div class="col-sm-10">
+        <input type="text" class="col-auto pl-2" placeholder="請填入支出內容" id="name" name="name" value="{{ record.name }}" required>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="date" class="col-sm-2 col-form-label text-md-right pt-1 pr-1">日期<span class="text-danger">*</span></label>
+      <div class="col-sm-10">
+        <input type="date" class="pl-2" placeholder="" id="date" name="date" pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}" value="{{ record.date }}" required>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="category" class="col-sm-2 col-form-label text-md-right pt-2 pr-1">類別<span class="text-danger">*</span></label>
+      <div class="col-sm-10">
+        <select class="form-control col-md-3 pl-2" id="category" name="category" required>
+          <option value="{{ record.categoryId.name }}" selected>({{ record.categoryId.name }})</option>
+          <option value="餐飲食品">餐飲食品</option>
+          <option value="交通出行">交通出行</option>
+          <option value="休閒娛樂">休閒娛樂</option>
+          <option value="家居物業">家居物業</option>
+          <option value="其他">其他</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="amount" class="col-sm-2 col-form-label text-md-right pt-1 pr-1">金額<span class="text-danger">*</span></label>
+      <div class="col-sm-10">
+        <input type="number" min="0" class="col-auto pl-2" placeholder="請填入支出金額" id="amount" name="amount" value="{{ record.amount }}" required>
+      </div>
+    </div>
+    <div class="d-flex buttonGroup mt-4">
+        <button type="submit" class="btn btn-secondary mr-3">儲存修改</button>
+        <a class="btn btn-info" href="/">back</a>
+    </div>
+  </form> 
+</div>

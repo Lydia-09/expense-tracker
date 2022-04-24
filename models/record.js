@@ -7,12 +7,6 @@ const recordSchema = new Schema({
     trim: true,
     required: true
   },
-  categoryId: {
-    type: Schema.Types.ObjectId,
-    ref: 'Category',
-    index: true,
-    required: true
-  },
   date: {
     type: Date,
     require: true
@@ -27,6 +21,12 @@ const recordSchema = new Schema({
     ref: 'User',
     index: true,
     require: true
+  },
+  categoryId: {
+    type: Schema.Types.ObjectId,
+    ref: 'Category',
+    index: true,
+    required: true
   }
 })
 

@@ -7,10 +7,12 @@ const Category = require('../../models/category')
 
 // Create page (new item page)
 router.get('/new', (req, res) => {
+    let today = new Date()
+    today = moment(today).format('YYYY-MM-DD')
     Category.find()
         .lean()
         .sort({ _id: 'asc' })
-        .then(categories => res.render('new', { categories }))
+        .then(categories => res.render('new', { categories, today }))
 })
 
 // Create function
@@ -33,6 +35,7 @@ router.get('/:id', (req, res) => {
         .lean()
         .then(record => {
             record.date = moment(record.date).format('YYYY/MM/DD')
+            record.amount = record.amount.toLocaleString('en-US')
             res.render('detail', { record })
         })
         .catch(error => console.log(error))
@@ -46,7 +49,7 @@ router.get('/:id/edit', (req, res) => {
         .populate('categoryId')
         .lean()
         .then(record => {
-            record.date = moment(record.date).format('YYYY/MM/DD')
+            record.date = moment(record.date).format('YYYY-MM-DD')
             Category.find()
                 .lean()
                 .then(categories => {
@@ -73,7 +76,7 @@ router.put('/:id', (req, res) => {
         .then(categories => {
             categories.forEach(category => {
                 //更新 record 的 categoryId 要和 category 資料庫裡的 id 搭配
-                if(category.title === req.body.category) req.body.categoryId = category._id
+                if(category.name === req.body.category) req.body.categoryId = category._id
             })
             Record.findOne({ _id, userId })
                 .then(record => {

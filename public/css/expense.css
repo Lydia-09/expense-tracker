@@ -1,0 +1,48 @@
+.container{max-width: 700px; min-width: 350px;}
+
+.expenseForm {max-width: 600px !important; margin: auto;}
+.buttonGroup {margin-left:18%;}
+.readonly {border-width: 0; border-bottom: 1px solid #c7c6c6;}
+
+.amount-content{background-color: gray; color: #fff; border-radius: 0.3em;}
+.amount-label{font-size: 0.9rem;}
+.total-amount{text-align: right; color: #ffc408;}
+.total-amount .smallText{font-size: 12px !important; color: #fff;}
+
+.records {margin: auto; border-bottom: 1px solid #c7c6c6;}
+.records .record-item:nth-child(odd) {background-color: #fad689;}
+.records .icon-item{width:70px;}
+i {color:#5a5a5a;}
+.name-item a{color:#17a2b8;}
+.amount-item{min-width: 130px; text-align: right;}
+.btn i {color: #fff;}
+
+@media (max-width: 991px){
+    .record-item {
+        flex:70%;
+        max-width:100%;
+    }
+    .records .btn{
+        margin-left: 10px;
+    }
+}
+
+@media (max-width: 406px){
+    .record-item {
+        flex:60%;
+    }
+    .records .icon-item{
+        width:50px;
+    }
+    .name-item{
+        font-size: 1.2rem;
+    }
+}
+
+@media (min-width: 450px){
+    .amount-item{
+        max-width: 125px;
+        min-width: 125px;
+    }
+}
+
