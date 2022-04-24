@@ -17,7 +17,7 @@ git clone https://github.com/Lydia-09/expense-tracker.git
 
 2. 安裝相關套件
 ```
-cd restaurant-list-oauth
+cd expense-tracker
 ```
 ```
 npm install
